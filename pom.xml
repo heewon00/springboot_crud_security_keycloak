@@ -67,13 +67,7 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-	        <!-- maridab -->
-		  <!--dependency>
-                                <groupId>org.mariadb.jdbc</groupId>
-                                <artifactId>mariadb-java-client</artifactId>
-                                <version>2.7.1</version>
-                                <scope>runtime</scope>
-                     </dependency-->
+		<!-- maridab -->
 		<dependency>
 		    <groupId>org.mariadb.jdbc</groupId>
 		    <artifactId>mariadb-java-client</artifactId>
@@ -130,10 +124,6 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-data-mongodb</artifactId>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
