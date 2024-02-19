@@ -2,7 +2,7 @@
 ### prd
 ##############
 server:
-  port: 8080
+  port: 9080
   servlet:
     context-path: /
   tomcat:
@@ -14,12 +14,10 @@ server:
 spring:
   datasource:
     platform: mariadb
-    #driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     driverClassName: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://db:3306/edu
-    username: edu
-    #password: caravan
-    password: ENC(hk5/B+52K9XaD+BqzpFaHQ==)
+    url: jdbc:mariadb://211.43.12.210:40001/admin
+    username: admin
+    password: admin
 #    hikari:
 #      pool-name: hikari-cp
 #      maximum-pool-size: 30
@@ -30,13 +28,13 @@ spring:
 #        prepStmtCacheSqlLimit: 2048
 #        useServerPrepStmts: true
 
-springdoc:
-  swagger-ui:
-    operations-sorter: alpha
-    tags-sorter: alpha
-    disable-swagger-default-url: true
-    doc-expansion: none
+#springdoc:
+#  swagger-ui:
+#    operations-sorter: alpha
+#    tags-sorter: alpha
+#    disable-swagger-default-url: true
+#    doc-expansion: none
 
-logging:
-  level:
-    com.kt.edu: trace
+#logging:
+#  level:
+#    com.kt.edu: trace

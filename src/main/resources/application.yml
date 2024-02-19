@@ -7,12 +7,26 @@ spring:
   application:
     name: edu-spring-data-jdbc
   profiles:
-    active: local
+    active: prd
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak.211.43.12.210.nip.io:30593/realms/employee-services
   banner:
     location: "classpath:banner.txt"
+
 # cache 사용을 위해 cache name 설정
   cache:
     cache-names: employee
+
+jwt:
+  secret: edujwt
+  auth:
+    converter:
+      resource-id: edu-app
+      principal-attribute: preferred_username
+
 #  security:
 #    user:
 #      name: admin
@@ -22,17 +36,47 @@ spring:
 #      client:
 #        url: http://localhost:8080
 
+app:
+  cors:
+    allowed-origins: http://localhost:3000
+  keycloak:
+    server : http://keycloak.211.43.12.210.nip.io:30593
+
+management:
+  endpoints:
+    web:
+      exposure.include: beans, env, health, info, metrics, mappings
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    groups-order: DESC
+    disable-swagger-default-url: true
+
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
+#    org:
+#      keycloak:
+#        admin:
+#          client: DEBUG
+
+#-------------------------------------------
+
 # logging
-logging:
-  config: classpath:log4j2.xml
+#logging:
+#  config: classpath:log4j2.xml
 
 #jasypt encryptor
-jasypt:
-  encryptor:
-    bean: jasyptStringEncryptor
-
-jwt:
-  secret: edujwt
+#jasypt:
+#  encryptor:
+#    bean: jasyptStringEncryptor
+#
+#jwt:
+#  secret: edujwt
 
 # app
 app-info:

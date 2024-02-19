@@ -2,7 +2,7 @@
 ### local
 ##############
 server:
-  port: 8080
+  port: 9080
 spring:
   h2:
     # h2 DB
