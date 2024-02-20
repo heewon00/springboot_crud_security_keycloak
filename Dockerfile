@@ -50,7 +50,7 @@ ENV SPRING_PROFILES_ACTIVE prd
 ENV JAVA_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1 -XshowSettings:vm"
 ENV JAVA_OPTS="${JAVA_OPTS} -XX:+UseG1GC -XX:+UnlockDiagnosticVMOptions -XX:+G1SummarizeConcMark -XX:InitiatingHeapOccupancyPercent=35 -XX:G1ConcRefinementThreads=20"
 
-EXPOSE 80
+EXPOSE 9080
 
 #ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar  app.jar "]
 ENTRYPOINT ["sh", "-c", "java -jar  app.jar "]
