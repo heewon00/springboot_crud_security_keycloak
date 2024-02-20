@@ -20,7 +20,7 @@ import java.util.*;
 @RequiredArgsConstructor
 @Component
 // KeycloakInitializerRunner 는 realm 생성하고 삭제 반복. 주석 처리하고 수정 생성
-public class KeycloakInitializerRunner implements CommandLineRunner {
+public class KeycloakInitializerRunner {//implements CommandLineRunner {
 
     private final Keycloak keycloakAdmin;
 
