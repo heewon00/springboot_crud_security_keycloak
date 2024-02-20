@@ -38,7 +38,7 @@ jwt:
 
 app:
   cors:
-    allowed-origins: http://frontend-keycloak.211.43.12.210.nip.io:31860 #http://localhost:3000
+    allowed-origins: * #http://localhost:3000
   keycloak:
     server : http://keycloak.211.43.12.210.nip.io:30593
 
