@@ -109,12 +109,11 @@ public class KeycloakInitializerRunner implements CommandLineRunner {
 
     private static final String EMYPLOEE_SERVICE_REALM_NAME = "employee-services";
     private static final String EDU_APP_CLIENT_ID = "edu-app";
-    private static final String EDU_APP_REDIRECT_URL = "http://localhost:3000/*";
+    private static final String EDU_APP_REDIRECT_URL = "http://211.43.12.210:31860/*"; //"http://localhost:3000/*";
     //private static final String EDU_APP_REDIRECT_URL = "*";
     private static final List<UserPass> EDU_USER_LIST = Arrays.asList(
             new UserPass("admin", "admin"),
-            new UserPass("edu", "edu"),
-            new UserPass("user", "user"));
+            new UserPass("edu", "edu"));
 
     private record UserPass(String username, String password) {
     }
