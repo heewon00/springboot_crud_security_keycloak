@@ -44,8 +44,8 @@ COPY elastic-apm-agent-1.43.0.jar /
 ENV TZ Asia/Seoul
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-ENV SPRING_PROFILES_ACTIVE dev
-# ENV SPRING_PROFILES_ACTIVE=prd
+# ENV SPRING_PROFILES_ACTIVE dev
+ENV SPRING_PROFILES_ACTIVE prd
 
 ENV JAVA_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1 -XshowSettings:vm"
 ENV JAVA_OPTS="${JAVA_OPTS} -XX:+UseG1GC -XX:+UnlockDiagnosticVMOptions -XX:+G1SummarizeConcMark -XX:InitiatingHeapOccupancyPercent=35 -XX:G1ConcRefinementThreads=20"
