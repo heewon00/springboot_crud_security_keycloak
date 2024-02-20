@@ -29,21 +29,21 @@ public class KeycloakInitializerRunner implements CommandLineRunner {
 
     //@Override
     public void run(String... args) {
-        log.info("Initializing '{}' realm in Keycloak ...", COMPANY_SERVICE_REALM_NAME);
+        log.info("Initializing '{}' realm in Keycloak ...", EMYPLOEE_SERVICE_REALM_NAME);
 
         Optional<RealmRepresentation> representationOptional = keycloakAdmin.realms()
                 .findAll()
                 .stream()
-                .filter(r -> r.getRealm().equals(COMPANY_SERVICE_REALM_NAME))
+                .filter(r -> r.getRealm().equals(EMYPLOEE_SERVICE_REALM_NAME))
                 .findAny();
         if (representationOptional.isPresent()) {
-            log.info("Removing already pre-configured '{}' realm", COMPANY_SERVICE_REALM_NAME);
-            keycloakAdmin.realm(COMPANY_SERVICE_REALM_NAME).remove();
+            log.info("Removing already pre-configured '{}' realm", EMYPLOEE_SERVICE_REALM_NAME);
+            keycloakAdmin.realm(EMYPLOEE_SERVICE_REALM_NAME).remove();
         }
 
         // Realm
         RealmRepresentation realmRepresentation = new RealmRepresentation();
-        realmRepresentation.setRealm(COMPANY_SERVICE_REALM_NAME);
+        realmRepresentation.setRealm(EMYPLOEE_SERVICE_REALM_NAME);
         realmRepresentation.setEnabled(true);
         realmRepresentation.setRegistrationAllowed(true);
 
@@ -87,7 +87,7 @@ public class KeycloakInitializerRunner implements CommandLineRunner {
 
 
         Keycloak keycloakMovieApp = KeycloakBuilder.builder().serverUrl(KEYCLOAK_SERVER_URL)
-                .realm(COMPANY_SERVICE_REALM_NAME).username(admin.username()).password(admin.password())
+                .realm(EMYPLOEE_SERVICE_REALM_NAME).username(admin.username()).password(admin.password())
                 //.realm("master").username(admin.username()).password(admin.password())
                 .grantType(OAuth2Constants.PASSWORD)
                 //.clientSecret("qhhAYK7k7898gANjeGnpad1Dy7Gu03VR")
@@ -95,7 +95,7 @@ public class KeycloakInitializerRunner implements CommandLineRunner {
                // .clientId("admin-api").build();
 
         log.info("'{}' token: {}", admin.username(), keycloakMovieApp.tokenManager().grantToken().getToken());
-        log.info("'{}' initialization completed successfully!", COMPANY_SERVICE_REALM_NAME);
+        log.info("'{}' initialization completed successfully!", EMYPLOEE_SERVICE_REALM_NAME);
     }
 
     private Map<String, List<String>> getClientRoles(UserPass userPass) {
@@ -107,13 +107,14 @@ public class KeycloakInitializerRunner implements CommandLineRunner {
         return Map.of(EDU_APP_CLIENT_ID, roles);
     }
 
-    private static final String COMPANY_SERVICE_REALM_NAME = "employee-services";
+    private static final String EMYPLOEE_SERVICE_REALM_NAME = "employee-services";
     private static final String EDU_APP_CLIENT_ID = "edu-app";
     private static final String EDU_APP_REDIRECT_URL = "http://localhost:3000/*";
     //private static final String EDU_APP_REDIRECT_URL = "*";
     private static final List<UserPass> EDU_USER_LIST = Arrays.asList(
             new UserPass("admin", "admin"),
-            new UserPass("edu", "edu"));
+            new UserPass("edu", "edu"),
+            new UserPass("user", "user"));
 
     private record UserPass(String username, String password) {
     }
