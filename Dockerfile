@@ -39,7 +39,7 @@ FROM eclipse-temurin:17.0.2_8-jre-alpine
 
 COPY --from=MAVEN_BUILD /build/target/*.jar app.jar
 
-COPY elastic-apm-agent-1.43.0.jar /
+COPY ./elastic-apm-agent-1.43.0.jar /
 
 ENV TZ Asia/Seoul
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
